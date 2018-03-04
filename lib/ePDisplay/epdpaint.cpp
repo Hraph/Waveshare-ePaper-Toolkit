@@ -24,7 +24,6 @@
  * THE SOFTWARE.
  */
 
-#include <avr/pgmspace.h>
 #include "epdpaint.h"
 
 Paint::Paint(unsigned char* image, int width, int height) {
@@ -149,7 +148,7 @@ void Paint::DrawCharAt(int x, int y, char ascii_char, sFONT* font, int colored) 
 
     for (j = 0; j < font->Height; j++) {
         for (i = 0; i < font->Width; i++) {
-            if (pgm_read_byte(ptr) & (0x80 >> (i % 8))) {
+            if ((*ptr) & (0x80 >> (i % 8))) {
                 DrawPixel(x + i, y + j, colored);
             }
             if (i % 8 == 7) {
