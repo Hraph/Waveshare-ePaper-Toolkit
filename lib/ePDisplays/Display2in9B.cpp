@@ -43,43 +43,6 @@ namespace Displays {
     }
 
     /**
-     *  @brief: basic function for sending commands
-     */
-    void Display2in9B::SendCommand(unsigned char command) {
-        //DigitalWrite(dc_pin, LOW);
-        //SpiTransfer(command);
-    }
-
-    /**
-     *  @brief: basic function for sending data
-     */
-    void Display2in9B::SendData(unsigned char data) {
-        DigitalWrite(dc_pin, HIGH);
-        SpiTransfer(data);
-    }
-
-    /**
-     *  @brief: Wait until the busy_pin goes HIGH
-     */
-    void Display2in9B::WaitUntilIdle(void) {
-        while(DigitalRead(busy_pin) == 0) {      //0: busy, 1: idle
-            DelayMs(100);
-        }      
-    }
-
-    /**
-     *  @brief: module reset. 
-     *          often used to awaken the module in deep sleep, 
-     *          see Epd::Sleep();
-     */
-    void Display2in9B::Reset(void) {
-        DigitalWrite(reset_pin, LOW);
-        DelayMs(200);
-        DigitalWrite(reset_pin, HIGH);
-        DelayMs(200);   
-    }
-
-    /**
      *  @brief: transmit partial data to the SRAM
      */
     void Display2in9B::SetPartialWindow(const unsigned char* buffer_black, const unsigned char* buffer_red, int x, int y, int w, int l) {
@@ -237,8 +200,8 @@ namespace Displays {
      *         You can use Epd::Reset() to awaken and use Epd::Init() to initialize.
      */
     void Display2in9B::Sleep() {
-    SendCommand(DEEP_SLEEP);
-    SendData(0xa5);
+        SendCommand(DEEP_SLEEP);
+        SendData(0xa5);
     }
 
 }
