@@ -1,24 +1,32 @@
 #include <Arduino.h>
 
 #include <SPI.h>
-#include <epd2in9b.h>
+//#include <epd2in9b.h>
+#include <DisplayFactory.hpp>
+#include <IDisplay.hpp>
 #include <epdpaint.h>
+#include <CourierNew12pt.c>
+#include <CourierNew16pt.c>
 
 #define COLORED     0
 #define UNCOLORED   1
 
+
+using namespace Displays;
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  Epd epd;
+  IDisplay *display = DisplayFactory::Get()->Create("2in9B");
 
-  if (epd.Init() != 0) {
+  if (display->Init() != 0) {
     Serial.print("e-Paper init failed");
     return;
   }
 
   /* This clears the SRAM of the e-paper display */
-  epd.ClearFrame();
+  Serial.println("Clear");
+  display->ClearFrame();
 
   /**
     * Due to RAM not enough in Arduino UNO, a frame buffer is not allowed.
@@ -31,11 +39,11 @@ void setup() {
 
   paint.Clear(UNCOLORED);
   paint.DrawStringAt(0, 0, "e-Paper Demo", &Font12, COLORED);
-  epd.SetPartialWindowBlack(paint.GetImage(), 24, 32, paint.GetWidth(), paint.GetHeight());
+  display->SetPartialWindowBlack(paint.GetImage(), 24, 32, paint.GetWidth(), paint.GetHeight());
 
   paint.Clear(COLORED);
   paint.DrawStringAt(2, 2, "Hello world", &Font16, UNCOLORED);
-  epd.SetPartialWindowRed(paint.GetImage(), 0, 64, paint.GetWidth(), paint.GetHeight());
+  display->SetPartialWindowRed(paint.GetImage(), 0, 64, paint.GetWidth(), paint.GetHeight());
   
   paint.SetWidth(64);
   paint.SetHeight(64);
@@ -44,25 +52,25 @@ void setup() {
   paint.DrawRectangle(0, 0, 40, 50, COLORED);
   paint.DrawLine(0, 0, 40, 50, COLORED);
   paint.DrawLine(40, 0, 0, 50, COLORED);
-  epd.SetPartialWindowBlack(paint.GetImage(), 8, 120, paint.GetWidth(), paint.GetHeight());
+  display->SetPartialWindowBlack(paint.GetImage(), 8, 120, paint.GetWidth(), paint.GetHeight());
   
   paint.Clear(UNCOLORED);
   paint.DrawCircle(32, 32, 30, COLORED);
-  epd.SetPartialWindowBlack(paint.GetImage(), 64, 120, paint.GetWidth(), paint.GetHeight());
+  display->SetPartialWindowBlack(paint.GetImage(), 64, 120, paint.GetWidth(), paint.GetHeight());
 
   paint.Clear(UNCOLORED);
   paint.DrawFilledRectangle(0, 0, 40, 50, COLORED);
-  epd.SetPartialWindowRed(paint.GetImage(), 8, 200, paint.GetWidth(), paint.GetHeight());
+  display->SetPartialWindowRed(paint.GetImage(), 8, 200, paint.GetWidth(), paint.GetHeight());
 
   paint.Clear(UNCOLORED);
   paint.DrawFilledCircle(32, 32, 30, COLORED);
-  epd.SetPartialWindowRed(paint.GetImage(), 64, 200, paint.GetWidth(), paint.GetHeight());
+  display->SetPartialWindowRed(paint.GetImage(), 64, 200, paint.GetWidth(), paint.GetHeight());
 
   /* This displays the data from the SRAM in e-Paper module */
-  epd.DisplayFrame();
+  display->DisplayFrame();
 
   /* Deep sleep */
-  epd.Sleep();
+  display->Sleep();
 }
 
 void loop() {
