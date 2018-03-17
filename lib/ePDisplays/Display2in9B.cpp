@@ -155,7 +155,7 @@ namespace Displays {
             for (int i = 0; i < this->width * this->height / 8; i++) {
                 SendData(*(&frame_buffer_red[i]));
             }
-            //DelayMs(2);
+            DelayMs(2);
         }
         SendCommand(DISPLAY_REFRESH);
         WaitUntilIdle();
@@ -172,17 +172,17 @@ namespace Displays {
         SendData(height & 0xff);
 
         SendCommand(DATA_START_TRANSMISSION_1);           
-        //DelayMs(2);
+        DelayMs(2);
         for(int i = 0; i < width * height / 8; i++) {
             SendData(0xFF);  
         }  
-        //DelayMs(2);
+        DelayMs(2);
         SendCommand(DATA_START_TRANSMISSION_2);           
-        //DelayMs(2);
+        DelayMs(2);
         for(int i = 0; i < width * height / 8; i++) {
             SendData(0xFF);  
         }  
-        //DelayMs(2);
+        DelayMs(2);
     }
 
     /**

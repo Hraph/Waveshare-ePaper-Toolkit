@@ -20,7 +20,10 @@ namespace Displays {
             void WaitUntilIdle(void);
             void Reset(void);
             void DelayMs(unsigned int delaytime);
-            
+
+            unsigned int width;
+            unsigned int height;
+
         public:
             void SetPins(int RSTPin, int DCPin, int CSPin, int BUSYPin);
 
@@ -30,9 +33,7 @@ namespace Displays {
             unsigned int dc_pin = 17;
             unsigned int cs_pin = 5;
             unsigned int busy_pin = 4;
-
-            unsigned int width;
-            unsigned int height;
+ 
     };
 }
 #endif /* DISPLAYCONNECTOR_H */ 
