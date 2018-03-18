@@ -56,7 +56,7 @@ namespace Displays {
     int DisplayConnector::IfInit(void) {
         pinMode(cs_pin, OUTPUT);
         pinMode(reset_pin, OUTPUT);
-        pinMode(cs_pin, OUTPUT);
+        pinMode(dc_pin, OUTPUT);
         pinMode(busy_pin, INPUT); 
         SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE0));
         SPI.begin();
