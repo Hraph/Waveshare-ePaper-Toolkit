@@ -3,11 +3,13 @@
 
 #pragma once
 
+#include "Frame.hpp"
+
 namespace UI {
 
     class IUIElement {
         protected:
-            virtual void Render(void) = 0;
+            virtual Frame* Render(Frame *frame) = 0;
             bool IsEnabled(void){
                 return enabled;
             };
