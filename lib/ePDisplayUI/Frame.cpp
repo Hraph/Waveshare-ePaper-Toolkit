@@ -12,7 +12,10 @@ namespace UI {
         this->height = height;
     };
     Frame::Frame(unsigned char* image, int x, int y, int width, int height){
-        Frame(x, y, width, height);
+        this->x = x;
+        this->y = y;
+        this->width = width % 8 ? width + 8 - (width % 8) : width;
+        this->height = height;
         this->image = image;
     };
     unsigned char* Frame::GetImage(void){
