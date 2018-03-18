@@ -1,6 +1,8 @@
 #include "Frame.hpp"
 #include "RenderingTools.hpp"
 
+using namespace Displays;
+
 namespace UI {
 
     Frame::Frame(int x, int y, int width, int height){
@@ -38,10 +40,10 @@ namespace UI {
     /**
      *  @brief: clear the image
      */
-    void Frame::Clear(int colored) {
+    void Frame::Clear(DisplayColor color) {
         for (int x = 0; x < this->width; x++) {
             for (int y = 0; y < this->height; y++) {
-                RenderingTools::DrawAbsolutePixel(this, x, y, colored);
+                RenderingTools::DrawAbsolutePixel(this, x, y, color);
             }
         }
     }

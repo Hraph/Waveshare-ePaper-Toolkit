@@ -3,6 +3,10 @@
 
 #pragma once
 
+#include <DisplayColor.hpp>
+
+using namespace Displays;
+
 namespace UI {
 
     class Frame {
@@ -16,7 +20,7 @@ namespace UI {
             int GetHeight(void);
             int GetRotate(void);
             void SetRotate(int rotate);
-            void Clear(int colored);
+            void Clear(DisplayColor color);
 
         private:
             unsigned char* image;

@@ -3,7 +3,7 @@
 
 #include "IUIElement.hpp"
 #include "Frame.hpp"
-#include <IDisplay.hpp>
+#include <DisplayColor.hpp>
 
 #pragma once
 

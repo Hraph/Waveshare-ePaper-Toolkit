@@ -4,7 +4,9 @@
 //#include <epd2in9b.h>
 #include <DisplayFactory.hpp>
 #include <IDisplay.hpp>
-#include <epdpaint.h>
+#include <Frame.hpp>
+#include <RenderingTools.hpp>
+#include <Point.hpp>
 #include <CourierNew12pt.c>
 #include <CourierNew16pt.c>
 
@@ -13,6 +15,7 @@
 
 
 using namespace Displays;
+using namespace UI;
 
 void setup() {
   // put your setup code here, to run once:
@@ -33,13 +36,18 @@ void setup() {
     * update a partial display several times.
     * 1 byte = 8 pixels, therefore you have to set 8*N pixels at a time.
     */
+  
   unsigned char image[1024];
-  Paint paint(image, 128, 18);    //width should be the multiple of 8 
+  Frame *frame = new Frame(image, 0, 0, 128, 50); //width should be the multiple of 8 
 
-  paint.Clear(UNCOLORED);
-  paint.DrawStringAt(0, 0, "e-Paper Demo", &Font12, COLORED);
-  display->SetPartialWindowBlack(paint.GetImage(), 24, 32, paint.GetWidth(), paint.GetHeight());
+  frame->Clear(DisplayColor::Uncolored);
+  RenderingTools::DrawStringAt(frame, 0, 0, "e-Paper Demo", &Font12, DisplayColor::Uncolored);
 
+  Point *point = new Point(20,20);
+  point->Render(frame);
+  display->SetFrame(frame, DisplayColor::Uncolored);
+
+  /*
   paint.Clear(COLORED);
   paint.DrawStringAt(2, 2, "Hello world", &Font16, UNCOLORED);
   display->SetPartialWindowRed(paint.GetImage(), 0, 64, paint.GetWidth(), paint.GetHeight());
