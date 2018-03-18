@@ -28,7 +28,7 @@ namespace UI {
             int y;
             int width;
             int height;
-            int rotate;
+            int rotate = DisplayOrientation::Rotate_0;
     };
 }
 
