@@ -8,8 +8,9 @@
 namespace UI {
 
     class IUIElement {
-        protected:
+        public:
             virtual Frame* Render(Frame *frame) = 0;
+        protected:
             bool IsEnabled(void){
                 return enabled;
             };
