@@ -16,8 +16,8 @@ namespace Displays {
         return new DisplayFactory();//DisplayFactory::instance;
     };
 
-    IDisplay *DisplayFactory::Create(const String displayName){
-        if (displayName == "2in9B")
+    IDisplay *DisplayFactory::Create(ePDs displayName){
+        if (displayName == ePDs::d2IN9B)
             return (new Display2in9B());
 
         return nullptr;

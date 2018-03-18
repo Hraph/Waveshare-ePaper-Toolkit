@@ -17,7 +17,7 @@ using namespace Displays;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  IDisplay *display = DisplayFactory::Get()->Create("2in9B");
+  IDisplay *display = DisplayFactory::Get()->Create(ePDs::d2IN9B);
 
   if (display->Init() != 0) {
     Serial.print("e-Paper init failed");
@@ -25,7 +25,6 @@ void setup() {
   }
 
   /* This clears the SRAM of the e-paper display */
-  Serial.println("Clear");
   display->ClearFrame();
 
   /**

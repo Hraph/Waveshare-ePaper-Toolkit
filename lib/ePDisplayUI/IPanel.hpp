@@ -22,4 +22,4 @@ namespace UI{
 
 }
 
-#endif
+#endif /* IPANEL_H */

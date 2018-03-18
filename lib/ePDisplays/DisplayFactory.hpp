@@ -7,18 +7,19 @@
 #pragma once
 
 namespace Displays {
-    /**
-     * @brief This class is a wrapper to the Arduino library and SPI functions
-     */
+    enum ePDs {
+        d2IN9B = 0
+    };
+
     class DisplayFactory {
         public:
             static DisplayFactory *Get();
-            IDisplay *Create(const String displayName);
+            IDisplay *Create(ePDs displayName);
 
         private:
             DisplayFactory();
             ~DisplayFactory();
             static DisplayFactory *instance;
-    };
+    };&
 }
 #endif /* DISPLAYFACTORY_H */ 
