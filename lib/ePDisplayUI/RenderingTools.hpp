@@ -1,7 +1,7 @@
 #ifndef RENDERINGTOOLS_H
 #define RENDERINGTOOLS_H
 
-#include <Fonts.h>
+#include <Fonts.hpp>
 #include <Frame.hpp>
 
 #pragma once
