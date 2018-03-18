@@ -10,8 +10,8 @@ namespace Displays {
     };
 
     Display2in9B::Display2in9B() {
-        width = EPD_WIDTH;
-        height = EPD_HEIGHT;
+        this->width = EPD_WIDTH;
+        this->height = EPD_HEIGHT;
     };
 
     int Display2in9B::Init(void) {

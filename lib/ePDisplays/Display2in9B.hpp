@@ -47,9 +47,6 @@ namespace Displays {
 
     class Display2in9B : public IDisplay {
     public:
-        unsigned int width;
-        unsigned int height;
-
         Display2in9B();
         ~Display2in9B();
         int  Init(void);
