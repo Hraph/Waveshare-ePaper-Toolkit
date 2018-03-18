@@ -20,5 +20,10 @@ namespace UI {
     int Frame::GetHeight(void){
         return this->height;
     };
-
+    int Frame::GetRotate(void){
+        return this->rotate;
+    };
+    void Frame::SetRotate(int rotate){
+        this->rotate = rotate;
+    };
 }

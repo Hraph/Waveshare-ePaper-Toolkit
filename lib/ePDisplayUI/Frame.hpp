@@ -14,7 +14,9 @@ namespace UI {
             unsigned char* GetImage(void);
             int GetWidth(void);
             int GetHeight(void);
-            
+            int GetRotate(void);
+            void SetRotate(int rotate);
+
         private:
             unsigned char* image;
             int width;
