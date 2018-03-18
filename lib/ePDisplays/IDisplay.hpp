@@ -1,7 +1,7 @@
 #ifndef IDISPLAY_H
 #define IDISPLAY_H
 #include "DisplayConnector.hpp"
-#include "DisplayColor.hpp"
+#include "DisplayParameters.hpp"
 #include <Frame.hpp>
 
 #pragma once

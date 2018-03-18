@@ -1,5 +1,5 @@
 #include "RenderingTools.hpp"
-
+#include <Arduino.h>
 using namespace Displays;
 
 namespace UI {
@@ -9,12 +9,14 @@ namespace UI {
     *          this function won't be affected by the rotate parameter.
     */
     Frame* RenderingTools::DrawAbsolutePixel(Frame *frame, int x, int y, DisplayColor color) {
+        Serial.println(color);
         unsigned char* image = frame->GetImage();
         if (x < 0 || x >= frame->GetWidth() || y < 0 || y >= frame->GetHeight()) {
             return frame;
         }
         if (IF_INVERT_COLOR) {
             if (color == DisplayColor::Uncolored) {
+                
                 image[(x + y * frame->GetWidth()) / 8] |= 0x80 >> (x % 8);
             } else {
                 image[(x + y * frame->GetWidth()) / 8] &= ~(0x80 >> (x % 8));
@@ -34,12 +36,12 @@ namespace UI {
     */
     Frame* RenderingTools::DrawPixel(Frame *frame, int x, int y, DisplayColor color) {
         int point_temp;
-        if (frame->GetRotate() == ROTATE_0) {
+        if (frame->GetRotate() == DisplayOrientation::Rotate_0) {
             if(x < 0 || x >= frame->GetWidth() || y < 0 || y >= frame->GetHeight()) {
                 return frame;
             }
             DrawAbsolutePixel(frame, x, y, color);
-        } else if (frame->GetRotate() == ROTATE_90) {
+        } else if (frame->GetRotate() == DisplayOrientation::Rotate_90) {
             if(x < 0 || x >= frame->GetHeight() || y < 0 || y >= frame->GetWidth()) {
             return frame;
             }
@@ -47,14 +49,14 @@ namespace UI {
             x = frame->GetWidth() - y;
             y = point_temp;
             DrawAbsolutePixel(frame, x, y, color);
-        } else if (frame->GetRotate() == ROTATE_180) {
+        } else if (frame->GetRotate() == DisplayOrientation::Rotate_180) {
             if(x < 0 || x >= frame->GetWidth() || y < 0 || y >= frame->GetHeight()) {
             return frame;
             }
             x = frame->GetWidth() - x;
             y = frame->GetHeight() - y;
             DrawAbsolutePixel(frame, x, y, color);
-        } else if (frame->GetRotate() == ROTATE_270) {
+        } else if (frame->GetRotate() == DisplayOrientation::Rotate_270) {
             if(x < 0 || x >= frame->GetHeight() || y < 0 || y >= frame->GetWidth()) {
             return frame;
             }

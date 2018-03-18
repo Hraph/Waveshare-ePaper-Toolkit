@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <DisplayColor.hpp>
+#include <DisplayParameters.hpp>
 
 using namespace Displays;
 

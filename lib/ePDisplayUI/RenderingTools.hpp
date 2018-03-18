@@ -3,17 +3,11 @@
 
 #include <Fonts.hpp>
 #include <Frame.hpp>
-#include <DisplayColor.hpp>
+#include <DisplayParameters.hpp>
 
 #pragma once
 
 using namespace Displays;
-
-// Display orientation
-#define ROTATE_0            0
-#define ROTATE_90           1
-#define ROTATE_180          2
-#define ROTATE_270          3
 
 // Color inverse. 1 or 0 = set or reset a bit if set a colored pixel
 #define IF_INVERT_COLOR     1
