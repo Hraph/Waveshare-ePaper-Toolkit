@@ -149,30 +149,6 @@ namespace Displays {
     }
 
     /**
-     * @brief: refresh and displays the frame
-     */
-    void Display2in9B::DisplayFrame(const unsigned char* frame_buffer_black, const unsigned char* frame_buffer_red) {
-        if (frame_buffer_black != NULL) {
-            SendCommand(DATA_START_TRANSMISSION_1);
-            DelayMs(2);
-            for (int i = 0; i < this->width * this->height / 8; i++) {
-                SendData(*(&frame_buffer_black[i]));
-            }
-            DelayMs(2);
-        }
-        if (frame_buffer_red != NULL) {
-            SendCommand(DATA_START_TRANSMISSION_2);
-            DelayMs(2);
-            for (int i = 0; i < this->width * this->height / 8; i++) {
-                SendData(*(&frame_buffer_red[i]));
-            }
-            DelayMs(2);
-        }
-        SendCommand(DISPLAY_REFRESH);
-        WaitUntilIdle();
-    }
-
-    /**
      * @brief: clear the frame data from the SRAM, this won't refresh the display
      */
     void Display2in9B::ClearFrame(void) {
