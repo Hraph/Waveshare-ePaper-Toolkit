@@ -7,9 +7,11 @@ namespace UI {
 
     class Frame {
         public:
-            Frame(int width, int height);
-            Frame(unsigned char* image, int width, int height);
+            Frame(int x, int y, int width, int height);
+            Frame(unsigned char* image, int x, int y, int width, int height);
             unsigned char* GetImage(void);
+            int GetX(void);
+            int GetY(void);
             int GetWidth(void);
             int GetHeight(void);
             int GetRotate(void);
@@ -18,6 +20,8 @@ namespace UI {
 
         private:
             unsigned char* image;
+            int x;
+            int y;
             int width;
             int height;
             int rotate;

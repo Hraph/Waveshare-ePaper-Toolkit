@@ -3,17 +3,27 @@
 
 namespace UI {
 
-    Frame::Frame(int width, int height){
+    Frame::Frame(int x, int y, int width, int height){
+        this->x = x;
+        this->y = y;
         this->width = width % 8 ? width + 8 - (width % 8) : width;
         this->height = height;
     };
-    Frame::Frame(unsigned char* image, int width, int height){
+    Frame::Frame(unsigned char* image, int x, int y, int width, int height){
+        this->x = x;
+        this->y = y;
         this->width = width % 8 ? width + 8 - (width % 8) : width;
         this->height = height;
         this->image = image;
     };
     unsigned char* Frame::GetImage(void){
         return this->image;
+    };
+    int Frame::GetX(void){
+        return this->x;
+    };
+    int Frame::GetY(void){
+        return this->y;
     };
     int Frame::GetWidth(void){
         return this->width;
