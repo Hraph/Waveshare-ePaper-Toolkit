@@ -20,6 +20,6 @@ namespace Displays {
             DisplayFactory();
             ~DisplayFactory();
             static DisplayFactory *instance;
-    };&
+    };
 }
 #endif /* DISPLAYFACTORY_H */ 
