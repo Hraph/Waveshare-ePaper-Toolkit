@@ -4,12 +4,9 @@
 using namespace Displays;
 
 namespace UI {
-    Point::Point(int x, int y){
+    Point::Point(int x, int y, DisplayColor color){
         this->x = x;
         this->y = y;
-    };
-    Point::Point(int x, int y, DisplayColor color){
-        Point(x, y);
         this->color = color;
     };
 

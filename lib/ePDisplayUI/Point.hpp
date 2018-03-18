@@ -14,7 +14,6 @@ namespace UI {
     class Point : public IUIElement {
         public:
             Point();
-            Point(int x, int y);
             Point(int x, int y, DisplayColor color);
             int GetX(void);
             int GetY(void);
@@ -22,12 +21,12 @@ namespace UI {
             void SetX(int x);
             void SetY(int y);
             void SetColor(DisplayColor color);
-            Frame* Render(Frame *frame);
         private:
-            int x = 0;
-            int y = 0;
-            DisplayColor color = DisplayColor::Uncolored;
-            
+            int x;
+            int y;
+            DisplayColor color;
+        protected:
+            Frame* Render(Frame *frame) = 0;
     };
 }
 
