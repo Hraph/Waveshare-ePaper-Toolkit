@@ -4,6 +4,7 @@
 #pragma once
 
 #include "IDisplay.hpp"
+#include <Frame.hpp>
 
 // Display resolution
 #define EPD_WIDTH       128
@@ -50,13 +51,17 @@ namespace Displays {
         Display2in9B();
         ~Display2in9B();
         int  Init(void);
-        void SetPartialWindow(const unsigned char* buffer_black, const unsigned char* buffer_red, int x, int y, int w, int l);
-        void SetPartialWindowBlack(const unsigned char* buffer_black, int x, int y, int w, int l);
-        void SetPartialWindowRed(const unsigned char* buffer_red, int x, int y, int w, int l);
-        void DisplayFrame(const unsigned char* frame_buffer_black, const unsigned char* frame_buffer_red);
+        void SetFrame(UI::Frame *frame, DisplayColor color);
+        void SetDualFrames(UI::Frame *uncoloredFrame, UI::Frame *coloredFrame);
+        
         void DisplayFrame(void);
         void ClearFrame(void);
         void Sleep(void);
+    
+    private:
+        void SetPartialWindow(const unsigned char* buffer_black, const unsigned char* buffer_red, int x, int y, int w, int l);
+        void SetPartialWindowBlack(const unsigned char* buffer_black, int x, int y, int w, int l);
+        void SetPartialWindowRed(const unsigned char* buffer_red, int x, int y, int w, int l);
     };
 }
 

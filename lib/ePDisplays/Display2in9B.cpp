@@ -42,6 +42,17 @@ namespace Displays {
 
     }
 
+    void Display2in9B::SetFrame(UI::Frame *frame, DisplayColor color = DisplayColor::Uncolored){
+        if (color == DisplayColor::Uncolored)
+            SetPartialWindowBlack(frame->GetImage(), frame->GetX(), frame->GetY(), frame->GetWidth(), frame->GetHeight()); 
+        else if (color == DisplayColor::Colored)
+            SetPartialWindowRed(frame->GetImage(), frame->GetX(), frame->GetY(), frame->GetWidth(), frame->GetHeight());   
+    }
+
+    void Display2in9B::SetDualFrames(UI::Frame *uncoloredFrame, UI::Frame *coloredFrame){
+
+    }
+
     /**
      *  @brief: transmit partial data to the SRAM
      */
