@@ -16,7 +16,7 @@ namespace UI {
             int GetHeight(void);
             int GetRotate(void);
             void SetRotate(int rotate);
-            Frame Clear(int colored);
+            void Clear(int colored);
 
         private:
             unsigned char* image;

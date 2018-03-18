@@ -31,7 +31,7 @@ namespace UI {
     /**
      *  @brief: clear the image
      */
-    Frame Frame::Clear(int colored) {
+    void Frame::Clear(int colored) {
         for (int x = 0; x < this->width; x++) {
             for (int y = 0; y < this->height; y++) {
                 RenderingTools::DrawAbsolutePixel(this, x, y, colored);
