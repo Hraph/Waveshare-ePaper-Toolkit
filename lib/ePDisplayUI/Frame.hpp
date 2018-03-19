@@ -19,7 +19,7 @@ namespace UI {
             int GetWidth(void);
             int GetHeight(void);
             int GetRotate(void);
-            void SetRotate(int rotate);
+            void SetRotate(DisplayOrientation rotate);
             void Clear(DisplayColor color);
 
         private:
@@ -28,7 +28,7 @@ namespace UI {
             int y;
             int width;
             int height;
-            int rotate = DisplayOrientation::Rotate_0;
+            DisplayOrientation rotate = DisplayOrientation::Rotate_0;
     };
 }
 

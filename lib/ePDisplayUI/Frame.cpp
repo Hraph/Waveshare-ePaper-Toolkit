@@ -36,7 +36,7 @@ namespace UI {
     int Frame::GetRotate(void){
         return this->rotate;
     };
-    void Frame::SetRotate(int rotate){
+    void Frame::SetRotate(DisplayOrientation rotate){
         this->rotate = rotate;
     };
 
