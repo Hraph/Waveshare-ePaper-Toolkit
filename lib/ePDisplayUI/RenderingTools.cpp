@@ -9,14 +9,12 @@ namespace UI {
     *          this function won't be affected by the rotate parameter.
     */
     Frame* RenderingTools::DrawAbsolutePixel(Frame *frame, int x, int y, DisplayColor color) {
-        Serial.println(color);
         unsigned char* image = frame->GetImage();
         if (x < 0 || x >= frame->GetWidth() || y < 0 || y >= frame->GetHeight()) {
             return frame;
         }
         if (IF_INVERT_COLOR) {
             if (color == DisplayColor::Uncolored) {
-                
                 image[(x + y * frame->GetWidth()) / 8] |= 0x80 >> (x % 8);
             } else {
                 image[(x + y * frame->GetWidth()) / 8] &= ~(0x80 >> (x % 8));
