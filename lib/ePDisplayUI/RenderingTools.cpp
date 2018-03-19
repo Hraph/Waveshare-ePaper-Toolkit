@@ -43,7 +43,7 @@ namespace UI {
             DrawAbsolutePixel(frame, x, y, color);
         } else if (frame->GetRotate() == DisplayOrientation::Rotate_90) {
             if(x < 0 || x >= frame->GetHeight() || y < 0 || y >= frame->GetWidth()) {
-            return frame;
+                return frame;
             }
             point_temp = x;
             x = frame->GetWidth() - y;
@@ -51,14 +51,14 @@ namespace UI {
             DrawAbsolutePixel(frame, x, y, color);
         } else if (frame->GetRotate() == DisplayOrientation::Rotate_180) {
             if(x < 0 || x >= frame->GetWidth() || y < 0 || y >= frame->GetHeight()) {
-            return frame;
+                return frame;
             }
             x = frame->GetWidth() - x;
             y = frame->GetHeight() - y;
             DrawAbsolutePixel(frame, x, y, color);
         } else if (frame->GetRotate() == DisplayOrientation::Rotate_270) {
             if(x < 0 || x >= frame->GetHeight() || y < 0 || y >= frame->GetWidth()) {
-            return frame;
+                return frame;
             }
             point_temp = x;
             x = y;
