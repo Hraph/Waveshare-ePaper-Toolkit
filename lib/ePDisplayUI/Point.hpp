@@ -27,7 +27,7 @@ namespace UI {
             int y;
             DisplayColor color = DisplayColor::Uncolored;
         protected:
-            Frame* Render(Frame *frame) = 0;
+            Frame* Render(Frame *frame);
     };
 }
 
