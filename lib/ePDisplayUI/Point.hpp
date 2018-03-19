@@ -1,7 +1,7 @@
 #ifndef POINT_H
 #define POINT_H
 
-#include "IUIElement.hpp"
+#include "IControl.hpp"
 #include "Frame.hpp"
 #include <DisplayParameters.hpp>
 
@@ -11,7 +11,7 @@ using namespace Displays;
 
 namespace UI {
 
-    class Point : public IUIElement {
+    class Point : public IControl {
         public:
             Point();
             Point(int x, int y);
