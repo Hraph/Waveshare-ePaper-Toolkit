@@ -57,6 +57,8 @@ namespace Displays {
         void DisplayFrame(void);
         void ClearFrame(void);
         void Sleep(void);
+
+        void DebugFrame(UI::Frame *frame);
     
     private:
         void SetPartialWindow(const unsigned char* buffer_black, const unsigned char* buffer_red, int x, int y, int w, int l);

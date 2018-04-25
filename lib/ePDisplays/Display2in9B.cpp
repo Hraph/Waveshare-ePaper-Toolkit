@@ -191,4 +191,26 @@ namespace Displays {
         SendData(0xa5);
     }
 
+    void Display2in9B::DebugFrame(UI::Frame *frame){
+        if (frame->GetImage() != NULL) {
+
+            Serial.print("Debug frame: ");
+
+            Serial.print("width: ");
+            Serial.print(frame->GetWidth());
+            Serial.print(", height: ");
+            Serial.println(frame->GetHeight());
+
+            for(int i = 0; i < frame->GetWidth()  / 8 * frame->GetHeight(); i++) {
+                String str = String(frame->GetImage()[i], BIN); //Convert pixel to byte
+                str.replace("1", " "); //Empty char
+                str.replace("0", "█"); //Printed char
+                Serial.print(str);
+        
+                if (i != 0 && i % 16 == 0) //Line return
+                    Serial.println("|");
+            }  
+        }
+    }
+
 }

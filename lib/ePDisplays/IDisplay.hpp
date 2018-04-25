@@ -17,6 +17,8 @@ namespace Displays {
         virtual void DisplayFrame(void) = 0;
         virtual void ClearFrame(void) = 0;
         virtual void Sleep(void) = 0;
+
+        virtual void DebugFrame(UI::Frame *frame) = 0;
     };
 }
 
