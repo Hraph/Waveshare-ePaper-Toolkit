@@ -2,7 +2,7 @@
 #define IPANEL_H
 
 #include "IUIElement.hpp"
-#include <Vector.h>
+#include "../epDisplayUtils/Vector.h"
 
 #pragma once
 
@@ -10,9 +10,9 @@ namespace UI{
 
     class IPanel : public IUIElement {
         private:
-            Vector<IUIElement> children;
+            Vector<IUIElement*> children;
         public:
-            Vector<IUIElement> GetChildren(void){
+            Vector<IUIElement*> GetChildren(void){
                 return children;
             }
             bool HasChildren(void){
