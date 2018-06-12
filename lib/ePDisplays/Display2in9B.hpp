@@ -60,6 +60,8 @@ namespace Displays {
 
         void DebugFrame(UI::Frame *frame);
     
+        int GetWidth(void);
+        int GetHeight(void);
     private:
         void SetPartialWindow(const unsigned char* buffer_black, const unsigned char* buffer_red, int x, int y, int w, int l);
         void SetPartialWindowBlack(const unsigned char* buffer_black, int x, int y, int w, int l);
