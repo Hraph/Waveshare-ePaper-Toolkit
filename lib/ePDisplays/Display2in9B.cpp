@@ -213,4 +213,12 @@ namespace Displays {
         }
     }
 
+    int Display2in9B::GetWidth(void) {
+        return EPD_WIDTH;
+    } 
+     
+    int Display2in9B::GetHeight(void) {
+        return EPD_HEIGHT;
+    } 
+
 }
