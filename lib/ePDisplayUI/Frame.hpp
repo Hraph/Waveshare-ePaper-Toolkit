@@ -23,12 +23,12 @@ namespace UI {
             void Clear(DisplayColor color);
 
         private:
-            unsigned char* image;
-            int x;
-            int y;
-            int width;
-            int height;
-            DisplayOrientation rotate = DisplayOrientation::Rotate_0;
+            unsigned char* _image;
+            int _x;
+            int _y;
+            int _width;
+            int _height;
+            DisplayOrientation _rotate = DisplayOrientation::Rotate_0;
     };
 }
 
