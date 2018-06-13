@@ -4,23 +4,27 @@ using namespace Displays;
 
 namespace UI {
     Frame* IPanel::Render(Frame *frame){
-        for(int i = 0; i < _elements.Size(); i++)
-        {
-            _elements[i]->Render(frame);
+        for(int i = 0; i < _elements.size(); i++) {
+            //_elements[i]->Render(frame);
         }   
     }
 
-    IPanel* IPanel::SetNumberOfElements(int number){
-        _elements.Reserve(number);
+    void IPanel::SetNumberOfElements(int number){
+        _elements.reserve(number);
+        
+    }
+
+    IPanel::IPanel(){
+        
     }
 
     IPanel* IPanel::AddElement(IUIElement *element){
-        _elements.PushBack(element);
+        _elements.push_back(element);
         return this;
     }
     
     bool IPanel::HasElement(void){
-        return _elements.Size() != 0;
+        return _elements.size() != 0;
     }
     
 }
