@@ -10,14 +10,12 @@ namespace UI{
 
     class IPanel : public IUIElement {
         private:
-            Vector<IUIElement*> children;
+            Vector<IUIElement*> _elements;
         public:
-            Vector<IUIElement*> GetChildren(void){
-                return children;
-            }
-            bool HasChildren(void){
-                return children.Size() != 0;
-            }
+            IPanel* SetNumberOfElements(int number);
+            IPanel* AddElement(IUIElement *element);
+            bool HasElement(void);
+            Frame* Render(Frame *frame);
     };
 
 }
