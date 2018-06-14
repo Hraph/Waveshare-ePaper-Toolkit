@@ -6,7 +6,8 @@
 
 namespace Displays {
     enum DisplayColor {
-        Uncolored = 0,
+        White = 0,
+        Black,
         Colored
     };
 

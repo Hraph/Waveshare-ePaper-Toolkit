@@ -5,18 +5,18 @@ using namespace Displays;
 
 namespace UI {
     Window::Window(IPanel *panel, int width, int height){
-        _uncoloredFrame = new Frame(0, 0, width, height);
+        _blackFrame = new Frame(0, 0, width, height);
+        _blackFrame->Clear(Displays::DisplayColor::White);
         _coloredFrame = new Frame(0, 0, width, height);
-        _uncoloredFrame->Clear(Displays::DisplayColor::Uncolored);
-        _coloredFrame->Clear(Displays::DisplayColor::Colored);
+        _coloredFrame->Clear(Displays::DisplayColor::White);
         _panel = panel;
     }
 
-    Frame* Window::GetUncoloredFrame(void){
-        return _uncoloredFrame;
+    Frame* Window::GetBlackFrame(void){
+        return _blackFrame;
     }
-    Frame* Window::RenderUncolored(void){
-        return _panel->RenderUncolored(_uncoloredFrame);
+    Frame* Window::RenderBlack(void){
+        return _panel->RenderBlack(_blackFrame);
     }
     Frame* Window::GetColoredFrame(void){
         return _coloredFrame;

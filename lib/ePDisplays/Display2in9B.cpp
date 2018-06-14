@@ -42,15 +42,11 @@ namespace Displays {
 
     }
 
-    void Display2in9B::SetFrame(UI::Frame *frame, DisplayColor color = DisplayColor::Uncolored){
-        if (color == DisplayColor::Uncolored)
+    void Display2in9B::SetFrame(UI::Frame *frame, DisplayColor color = DisplayColor::Black){
+        if (color == DisplayColor::Black)
             SetPartialWindowBlack(frame->GetImage(), frame->GetX(), frame->GetY(), frame->GetWidth(), frame->GetHeight()); 
         else if (color == DisplayColor::Colored)
             SetPartialWindowRed(frame->GetImage(), frame->GetX(), frame->GetY(), frame->GetWidth(), frame->GetHeight());   
-    }
-
-    void Display2in9B::SetDualFrames(UI::Frame *uncoloredFrame, UI::Frame *coloredFrame){
-
     }
 
     /**
@@ -222,7 +218,8 @@ namespace Displays {
     } 
 
     void Display2in9B::DisplayWindow(Window* window){
-        SetDualFrames(window->RenderUncolored(), window->RenderColored());
+        SetFrame(window->RenderBlack(), DisplayColor::Black);
+        SetFrame(window->RenderColored(), DisplayColor::Colored);
         DisplayFrame();
     }
 }

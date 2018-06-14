@@ -4,18 +4,22 @@
 using namespace Displays;
 
 namespace UI {
-    Frame* IPanel::RenderColored(Frame *frame){
+    Frame* IPanel::RenderBlack(Frame *frame){
         for(int i = 0; i < _elements.size(); i++) {
-            if (_elements[i]->IsEnabled() && _elements[i]->GetColor() == Displays::DisplayColor::Colored)
-                _elements[i]->Render(frame);   
+            if (_elements[i]->IsEnabled() && _elements[i]->GetColor() == Displays::DisplayColor::Black){
+                Serial.println("no color");
+                _elements[i]->Render(frame);
+            }
         }
         return frame;   
     }
 
-    Frame* IPanel::RenderUncolored(Frame *frame){
+    Frame* IPanel::RenderColored(Frame *frame){
         for(int i = 0; i < _elements.size(); i++) {
-            if (_elements[i]->IsEnabled() && _elements[i]->GetColor() == Displays::DisplayColor::Uncolored)
-                _elements[i]->Render(frame);
+            if (_elements[i]->IsEnabled() && _elements[i]->GetColor() == Displays::DisplayColor::Colored){
+                Serial.println("color");
+                _elements[i]->Render(frame);   
+            }
         }
         return frame;   
     }

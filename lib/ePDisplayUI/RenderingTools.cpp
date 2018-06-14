@@ -14,13 +14,13 @@ namespace UI {
             return frame;
         }
         if (IF_INVERT_COLOR) {
-            if (color == DisplayColor::Uncolored) {
+            if (color == DisplayColor::White) {
                 image[(x + y * frame->GetWidth()) / 8] |= 0x80 >> (x % 8);
             } else {
                 image[(x + y * frame->GetWidth()) / 8] &= ~(0x80 >> (x % 8));
             }
         } else {
-            if (color == DisplayColor::Uncolored) {
+            if (color == DisplayColor::White) {
                 image[(x + y * frame->GetWidth()) / 8] &= ~(0x80 >> (x % 8));
             } else {
                 image[(x + y * frame->GetWidth()) / 8] |= 0x80 >> (x % 8);

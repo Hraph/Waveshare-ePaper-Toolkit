@@ -15,7 +15,7 @@ namespace UI{
             IPanel* AddElement(IControl *element);
             bool HasElements(void);
 
-            Frame* RenderUncolored(Frame *frame);
+            Frame* RenderBlack(Frame *frame);
             Frame* RenderColored(Frame *frame);
         protected:
             IPanel();

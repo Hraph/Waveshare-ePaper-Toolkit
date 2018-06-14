@@ -14,7 +14,6 @@ namespace Displays {
     public:
         virtual int  Init(void) = 0;
         virtual void SetFrame(Frame *frame, DisplayColor color) = 0;
-        virtual void SetDualFrames(Frame *uncoloredFrame, Frame *coloredFrame) = 0;
         virtual void DisplayFrame(void) = 0;
         virtual void ClearFrame(void) = 0;
         virtual void DisplayWindow(Window* window) = 0;

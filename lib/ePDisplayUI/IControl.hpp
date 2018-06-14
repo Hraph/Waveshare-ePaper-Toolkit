@@ -12,7 +12,7 @@ namespace UI {
             void SetColor(DisplayColor color);
             DisplayColor GetColor(void);
         private:
-            DisplayColor _color = DisplayColor::Uncolored;
+            DisplayColor _color = DisplayColor::Black;
     };
 }
 

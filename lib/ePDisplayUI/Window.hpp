@@ -13,12 +13,12 @@ namespace UI {
         public:
             Window(IPanel *panel, int width, int height);
             void SetPanel(IPanel *panel);
-            Frame* GetUncoloredFrame(void);
-            Frame* RenderUncolored(void);
+            Frame* GetBlackFrame(void);
+            Frame* RenderBlack(void);
             Frame* GetColoredFrame(void);
             Frame* RenderColored(void);
         private:
-            Frame* _uncoloredFrame;
+            Frame* _blackFrame;
             Frame* _coloredFrame;
             IPanel* _panel;
     };

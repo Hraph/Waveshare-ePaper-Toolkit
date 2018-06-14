@@ -53,7 +53,6 @@ namespace Displays {
         ~Display2in9B();
         int  Init(void);
         void SetFrame(UI::Frame *frame, DisplayColor color);
-        void SetDualFrames(UI::Frame *uncoloredFrame, UI::Frame *coloredFrame);
         
         void DisplayFrame(void);
         void ClearFrame(void);
