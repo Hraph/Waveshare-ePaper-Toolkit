@@ -18,16 +18,12 @@ namespace UI {
             Point(int x, int y, DisplayColor color);
             int GetX(void);
             int GetY(void);
-            DisplayColor GetColor(void);
             void SetX(int x);
             void SetY(int y);
-            void SetColor(DisplayColor color);
+            Frame* Render(Frame *frame);
         private:
             int x;
             int y;
-            DisplayColor color = DisplayColor::Uncolored;
-        protected:
-            Frame* Render(Frame *frame);
     };
 }
 

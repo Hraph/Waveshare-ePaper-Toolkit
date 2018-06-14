@@ -19,14 +19,14 @@ namespace UI {
         this->x = x;
         this->y = y;
         this->radius = radius;
-        this->color = color;
+        this->SetColor(color);
     };
     Circle::Circle(int x, int y, int radius, bool filled, DisplayColor color){
         this->x = x;
         this->y = y;
         this->radius = radius;
         this->filled = filled;
-        this->color = color;
+        this->SetColor(color);
     };
 
     //Getters - Setters
@@ -42,9 +42,6 @@ namespace UI {
     bool Circle::GetFilled(void){
         return this->filled;
     };
-    DisplayColor Circle::GetColor(void){
-        return this->color;
-    };
     void Circle::SetX(int x){
         this->x = x;
     };
@@ -57,15 +54,12 @@ namespace UI {
     void Circle::SetFilled(bool filled){
         this->filled = filled;
     };
-    void Circle::SetColor(DisplayColor color){
-        this->color = color;
-    };
 
     Frame* Circle::Render(Frame *frame){
         if (!this->filled)
-            RenderingTools::DrawCircle(frame, this->x, this->y, this->radius, this->color);
+            RenderingTools::DrawCircle(frame, this->x, this->y, this->radius, this->GetColor());
         else   
-            RenderingTools::DrawFilledCircle(frame, this->x, this->y, this->radius, this->color);
+            RenderingTools::DrawFilledCircle(frame, this->x, this->y, this->radius, this->GetColor());
         return frame;
     };
 }

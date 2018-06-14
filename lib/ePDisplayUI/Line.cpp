@@ -15,7 +15,7 @@ namespace UI {
         this->fromY = fromY;
         this->toX = toX;
         this->toY = toY;
-        this->color = color;
+        this->SetColor(color);
     };
 
     //Getters - Setters
@@ -31,9 +31,6 @@ namespace UI {
     int Line::GetToY(void){
         return this->toY;
     };
-    DisplayColor Line::GetColor(void){
-        return this->color;
-    };
     void Line::SetFromX(int x){
         this->fromX = x;
     };
@@ -46,12 +43,9 @@ namespace UI {
     void Line::SetToY(int y){
         this->toY= y;
     };
-    void Line::SetColor(DisplayColor color){
-        this->color = color;
-    };
 
     Frame* Line::Render(Frame *frame){
-        RenderingTools::DrawLine(frame, this->fromX, this->fromY, this->toX, this->toY, this->color);
+        RenderingTools::DrawLine(frame, this->fromX, this->fromY, this->toX, this->toY, this->GetColor());
         return frame;
     };
 }

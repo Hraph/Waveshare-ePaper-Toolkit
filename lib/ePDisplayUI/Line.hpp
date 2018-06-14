@@ -20,20 +20,16 @@ namespace UI {
             int GetFromY(void);
             int GetToX(void);
             int GetToY(void);
-            DisplayColor GetColor(void);
             void SetFromX(int x);
             void SetFromY(int y);
             void SetToX(int x);
             void SetToY(int y);
-            void SetColor(DisplayColor color);
+            Frame* Render(Frame *frame);
         private:
             int fromX;
             int fromY;
             int toX;
-            int toY;
-            DisplayColor color = DisplayColor::Uncolored;
-        protected:
-            Frame* Render(Frame *frame);
+            int toY;            
     };
 }
 

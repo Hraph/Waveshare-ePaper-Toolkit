@@ -1,5 +1,6 @@
 #include "Rectangle.hpp"
 #include "RenderingTools.hpp"
+#include <Arduino.h>
 
 using namespace Displays;
 
@@ -22,7 +23,7 @@ namespace UI {
         this->fromY = fromY;
         this->toX = toX;
         this->toY = toY;
-        this->color = color;
+        this->SetColor(color);
     };
     Rectangle::Rectangle(int fromX, int fromY, int toX, int toY,bool filled, DisplayColor color){
         this->fromX = fromX;
@@ -30,7 +31,7 @@ namespace UI {
         this->toX = toX;
         this->toY = toY;
         this->filled = filled;
-        this->color = color;
+        this->SetColor(color);
     };
 
     //Getters - Setters
@@ -49,9 +50,6 @@ namespace UI {
     bool Rectangle::GetFilled(void){
         return this->filled;
     }
-    DisplayColor Rectangle::GetColor(void){
-        return this->color;
-    };
     void Rectangle::SetFromX(int x){
         this->fromX = x;
     };
@@ -67,15 +65,12 @@ namespace UI {
     void Rectangle::SetFilled(bool filled){
         this->filled= filled;
     };
-    void Rectangle::SetColor(DisplayColor color){
-        this->color = color;
-    };
-
+    
     Frame* Rectangle::Render(Frame *frame){
         if (!this->filled)
-            RenderingTools::DrawRectangle(frame, this->fromX, this->fromY, this->toX, this->toY, this->color);
+            RenderingTools::DrawRectangle(frame, this->fromX, this->fromY, this->toX, this->toY, this->GetColor());
         else
-            RenderingTools::DrawFilledRectangle(frame, this->fromX, this->fromY, this->toX, this->toY, this->color);
+            RenderingTools::DrawFilledRectangle(frame, this->fromX, this->fromY, this->toX, this->toY, this->GetColor());
         return frame;
     };
 }

@@ -22,20 +22,16 @@ namespace UI {
             int GetY(void);
             int GetRadius(void);
             bool GetFilled(void);
-            DisplayColor GetColor(void);
             void SetX(int x);
             void SetY(int y);
             void SetRadius(int radius);
             void SetFilled(bool filled);
-            void SetColor(DisplayColor color);
+            Frame* Render(Frame *frame);
         private:
             int x;
             int y;
             int radius;
-            int filled = false;
-            DisplayColor color = DisplayColor::Uncolored;
-        protected:
-            Frame* Render(Frame *frame);
+            int filled = false;    
     };
 }
 

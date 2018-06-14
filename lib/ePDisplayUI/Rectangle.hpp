@@ -23,22 +23,18 @@ namespace UI {
             int GetToX(void);
             int GetToY(void);
             bool GetFilled(void);
-            DisplayColor GetColor(void);
             void SetFromX(int x);
             void SetFromY(int y);
             void SetToX(int x);
             void SetToY(int y);
             void SetFilled(bool filled);
-            void SetColor(DisplayColor color);
+            Frame* Render(Frame *frame);
         private:
             int fromX;
             int fromY;
             int toX;
             int toY;
-            bool filled = false;
-            DisplayColor color = DisplayColor::Uncolored;
-        protected:
-            Frame* Render(Frame *frame);
+            bool filled = false; 
     };
 }
 
