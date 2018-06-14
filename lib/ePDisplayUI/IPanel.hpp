@@ -2,6 +2,7 @@
 #define IPANEL_H
 
 #include "IUIElement.hpp"
+#include "IControl.hpp"
 #include "vector"
 
 #pragma once
@@ -11,13 +12,15 @@ namespace UI{
     class IPanel : public IUIElement {
         public:
             void SetNumberOfElements(int number);
-            IPanel* AddElement(IUIElement *element);
-            bool HasElement(void);
-            Frame* Render(Frame *frame);
+            IPanel* AddElement(IControl *element);
+            bool HasElements(void);
+
+            Frame* RenderUncolored(Frame *frame);
+            Frame* RenderColored(Frame *frame);
         protected:
             IPanel();
         private:
-            std::vector<IUIElement*> _elements;
+            std::vector<IControl*> _elements;
     };
 
 }

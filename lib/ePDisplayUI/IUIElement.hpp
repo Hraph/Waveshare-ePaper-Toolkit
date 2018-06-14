@@ -9,16 +9,14 @@ namespace UI {
 
     class IUIElement {
         public:
-            virtual Frame* Render(Frame *frame) = 0;
-        protected:
             bool IsEnabled(void){
-                return enabled;
+                return _enabled;
             };
             void SetEnabled(bool state){
-                enabled = state;
+                _enabled = state;
             };
         private:
-            bool enabled = true;
+            bool _enabled = true;
     };
 }
 

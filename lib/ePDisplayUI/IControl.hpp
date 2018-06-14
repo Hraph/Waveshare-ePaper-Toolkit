@@ -7,8 +7,12 @@
 
 namespace UI {
     class IControl : public IUIElement {
-
-    
+        public:
+            virtual Frame* Render(Frame *frame) = 0;
+            void SetColor(DisplayColor color);
+            DisplayColor GetColor(void);
+        private:
+            DisplayColor _color = DisplayColor::Uncolored;
     };
 }
 
