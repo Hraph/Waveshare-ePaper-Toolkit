@@ -3,6 +3,7 @@
 #include "DisplayConnector.hpp"
 #include "DisplayParameters.hpp"
 #include <Frame.hpp>
+#include <Window.hpp>
 
 #pragma once
 
@@ -16,6 +17,7 @@ namespace Displays {
         virtual void SetDualFrames(Frame *uncoloredFrame, Frame *coloredFrame) = 0;
         virtual void DisplayFrame(void) = 0;
         virtual void ClearFrame(void) = 0;
+        virtual void DisplayWindow(Window* window) = 0;
         virtual void Sleep(void) = 0;
 
         virtual int GetWidth(void) = 0;

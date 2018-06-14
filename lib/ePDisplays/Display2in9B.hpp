@@ -5,6 +5,7 @@
 
 #include "IDisplay.hpp"
 #include <Frame.hpp>
+#include <Window.hpp>
 
 // Display resolution
 #define EPD_WIDTH       128
@@ -56,6 +57,7 @@ namespace Displays {
         
         void DisplayFrame(void);
         void ClearFrame(void);
+        void DisplayWindow(Window* window);
         void Sleep(void);
 
         void DebugFrame(UI::Frame *frame);

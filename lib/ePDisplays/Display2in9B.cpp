@@ -221,4 +221,8 @@ namespace Displays {
         return EPD_HEIGHT;
     } 
 
+    void Display2in9B::DisplayWindow(Window* window){
+        SetDualFrames(window->RenderUncolored(), window->RenderColored());
+        DisplayFrame();
+    }
 }
