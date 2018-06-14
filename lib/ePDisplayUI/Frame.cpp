@@ -10,7 +10,7 @@ namespace UI {
         this->_y = y;
         this->_width = width % 8 ? width + 8 - (width % 8) : width;
         this->_height = height;
-        this->_image = new unsigned char[(this->_width * this->_height) / 8]; //Reserve space for total image size
+        this->_image = new unsigned char[(this->_width * this->_height) / 8]; //Reserve space for total image size 
     };
     Frame::Frame(unsigned char* image, int x, int y, int width, int height){
         this->_x = x;

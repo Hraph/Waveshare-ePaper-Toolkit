@@ -4,7 +4,6 @@
 #pragma once
 
 #include <IPanel.hpp>
-#include <IDisplay.hpp>
 
 using namespace Displays;
 
@@ -13,12 +12,14 @@ namespace UI {
     class Window {
         public:
             Window(IPanel *panel, int width, int height);
-            Window(IPanel *panel, IDisplay *display);
             void SetPanel(IPanel *panel);
-            void Clear(void);
-            Frame* Render(void);
+            Frame* GetUncoloredFrame(void);
+            Frame* RenderUncolored(void);
+            Frame* GetColoredFrame(void);
+            Frame* RenderColored(void);
         private:
-            Frame* _frame;
+            Frame* _uncoloredFrame;
+            Frame* _coloredFrame;
             IPanel* _panel;
     };
 }
