@@ -4,6 +4,7 @@
 #include <Fonts.hpp>
 #include <Frame.hpp>
 #include <DisplayParameters.hpp>
+#include <Arduino.h>
 
 #pragma once
 
@@ -20,6 +21,7 @@ namespace UI {
             static Frame* DrawPixel(Frame *frame, int x, int y, DisplayColor color);
             static Frame* DrawCharAt(Frame *frame, int x, int y, char ascii_char, sFONT* font, DisplayColor color);
             static Frame* DrawStringAt(Frame *frame, int x, int y, const char* text, sFONT* font, DisplayColor color);
+            static Frame* DrawStringAt(Frame *frame, int x, int y, String* text, sFONT* font, DisplayColor color);
             static Frame* DrawLine(Frame *frame, int x0, int y0, int x1, int y1, DisplayColor color);
             static Frame* DrawHorizontalLine(Frame *frame, int x, int y, int width, DisplayColor color);
             static Frame* DrawVerticalLine(Frame *frame, int x, int y, int height, DisplayColor color);

@@ -1,5 +1,4 @@
 #include "RenderingTools.hpp"
-#include <Arduino.h>
 using namespace Displays;
 
 namespace UI {
@@ -106,6 +105,23 @@ namespace UI {
             refcolumn += font->Width;
             /* Point on the next character */
             p_text++;
+            counter++;
+        }
+        return frame;
+    }
+
+    /**
+    *  @brief: this displays a string on the frame buffer but not refresh
+    */
+    Frame* RenderingTools::DrawStringAt(Frame *frame, int x, int y, String* text, sFONT* font, DisplayColor color) {
+        unsigned int counter = 0;
+        int refcolumn = x;
+        for(int i = 0; i < text->length(); ++i){
+            /* Display one character on EPD */
+            DrawCharAt(frame, refcolumn, y, text->charAt(i), font, color);
+            /* Decrement the column position by 16 */
+            refcolumn += font->Width;
+            /* Point on the next character */
             counter++;
         }
         return frame;
