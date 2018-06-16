@@ -128,6 +128,30 @@ namespace UI {
     }
 
     /**
+    *  @brief: this displays a char buffer on the frame buffer but not refresh
+    */
+    Frame* RenderingTools::DrawImage(Frame *frame, int x, int y, int width, int height, const unsigned char* buffer, DisplayColor color){
+        int pixelX = 1;
+        int pixelY = 1;
+        for(int i = 0; i < width  / 8 * height; i++) {
+            for (int j = 0; j < 8; ++j){
+                
+                if ((buffer[i] >> j) & 0x1) {
+                    DrawPixel(frame, pixelX, pixelY, color);
+                }
+                     
+                ++pixelX;
+                if (pixelX > width){
+                    pixelX = 1;
+                    ++pixelY;
+                }
+                    
+            }
+        }
+        return frame;
+    }
+
+    /**
     *  @brief: this draws a line on the frame buffer
     */
     Frame* RenderingTools::DrawLine(Frame *frame, int x0, int y0, int x1, int y1, DisplayColor color) {
