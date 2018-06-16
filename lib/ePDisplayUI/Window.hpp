@@ -17,6 +17,7 @@ namespace UI {
             Frame* RenderBlack(void);
             Frame* GetColoredFrame(void);
             Frame* RenderColored(void);
+            void SetRotate(DisplayOrientation orientation);
         private:
             Frame* _blackFrame;
             Frame* _coloredFrame;

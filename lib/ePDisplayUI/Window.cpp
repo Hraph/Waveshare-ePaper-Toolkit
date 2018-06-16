@@ -24,5 +24,10 @@ namespace UI {
     Frame* Window::RenderColored(void){
         return _panel->RenderColored(_coloredFrame);
     }
+
+    void Window::SetRotate(DisplayOrientation orientation){
+        _blackFrame->SetRotate(orientation);
+        _coloredFrame->SetRotate(orientation);
+    }
     
 }
