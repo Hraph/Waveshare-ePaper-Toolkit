@@ -7,7 +7,6 @@ namespace UI {
     Frame* IPanel::RenderBlack(Frame *frame){
         for(int i = 0; i < _elements.size(); i++) {
             if (_elements[i]->IsEnabled() && _elements[i]->GetColor() == Displays::DisplayColor::Black){
-                Serial.println("no color");
                 _elements[i]->Render(frame);
             }
         }
@@ -17,7 +16,6 @@ namespace UI {
     Frame* IPanel::RenderColored(Frame *frame){
         for(int i = 0; i < _elements.size(); i++) {
             if (_elements[i]->IsEnabled() && _elements[i]->GetColor() == Displays::DisplayColor::Colored){
-                Serial.println("color");
                 _elements[i]->Render(frame);   
             }
         }
