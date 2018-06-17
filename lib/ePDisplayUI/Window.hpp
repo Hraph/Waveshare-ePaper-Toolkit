@@ -11,17 +11,22 @@ namespace UI {
 
     class Window {
         public:
+            Window();
+            Window(Frame* frame, bool isColoredFrame = false);
+            Window(Frame* blackFrame, Frame* coloredFrame);
             Window(IPanel *panel, int width, int height);
-            void SetPanel(IPanel *panel);
+            void SetBlackFrame(Frame* frame);
             Frame* GetBlackFrame(void);
             Frame* RenderBlack(void);
+            void SetColoredFrame(Frame* frame);
             Frame* GetColoredFrame(void);
             Frame* RenderColored(void);
             void SetRotate(DisplayOrientation orientation);
+            void SetPanel(IPanel* panel);
         private:
-            Frame* _blackFrame;
-            Frame* _coloredFrame;
-            IPanel* _panel;
+            Frame* _blackFrame = 0;
+            Frame* _coloredFrame = 0;
+            IPanel* _panel = 0;
     };
 }
 
