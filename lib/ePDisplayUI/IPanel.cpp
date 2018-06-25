@@ -34,9 +34,25 @@ namespace UI {
         _elements.push_back(element);
         return this;
     }
+
+    void IPanel::RemoveElement(int index){
+        _elements.erase(_elements.begin() + index);
+    }
+
+    void IPanel::RemoveElement(IControl* element){
+        _elements.erase(std::remove(_elements.begin(), _elements.end(), element), _elements.end());
+    }
+
+    void IPanel::ClearElements(void){
+        _elements.clear();
+    }
     
     bool IPanel::HasElements(void){
         return _elements.size() != 0;
+    }
+
+    int IPanel::CountElements(void){
+        return _elements.size();
     }
     
 }

@@ -3,7 +3,8 @@
 
 #include "IUIElement.hpp"
 #include "IControl.hpp"
-#include "vector"
+#include <vector>
+#include <algorithm>
 
 #pragma once
 
@@ -13,7 +14,11 @@ namespace UI{
         public:
             void SetNumberOfElements(int number);
             IPanel* AddElement(IControl *element);
+            void RemoveElement(int index);
+            void RemoveElement(IControl* element);
+            void ClearElements(void);
             bool HasElements(void);
+            int CountElements(void);
 
             Frame* RenderBlack(Frame *frame);
             Frame* RenderColored(Frame *frame);
